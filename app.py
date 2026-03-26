@@ -1,4 +1,6 @@
-from flask import Flask , requests , secrets , string
+from flask import Flask , requests 
+import string
+import secrets
 
 
 def generate_id():
