@@ -10,7 +10,7 @@ def init_db():
     
     id INTEGER PRIMARY KEY,
     url TEXT,
-    short_code TEXT,
+    short_code TEXT UNIQUE,
     click_count INTEGER DEFAULT 0
  
     
