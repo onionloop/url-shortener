@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Backgrounds - pure blacks */
+    --bg-primary: #060607;
+    --bg-secondary: #0f0f10;
+    --bg-card: #16161a;
+    --bg-hover: #1e1e24;
+
+    /* Accent - Linear uses subtle purple-ish white */
+    --accent: #ffffff;
+    --accent-hover: #e2e2e2;
+    --accent-text: #000000;
+
+    /* Text */
+    --text-primary: #e2e2e2;
+    --text-secondary: #8a8a9a;
+    --text-muted: #3a3a4a;
+
+    /* Borders - very subtle */
+    --border: #1e1e26;
+    --border-hover: #2e2e3a;
+
+    /* Input */
+    --input-bg: #0f0f10;
+
+    /* Status */
+    --success: #22c55e;
+    --error: #ef4444;
+
+    /* Shape */
+    --radius: 8px;
+    --radius-sm: 5px;
+
+    /* Font */
+    --font: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 1.5em;
+    margin: 0 auto;
+    padding: 2rem;
+    
+    background-image: radial-gradient(circle at top,
+    rgba(46, 48, 75, 0.25) 0%, 
+    rgba(46, 48, 75, 0.05) 40%,
+    transparent 70%
+    );
+}
+
+
+
+h1 {
+  
+  font-family: var(--font);
+  font-size: 3.5rem;          
+  font-weight: 800;           
+  letter-spacing: -0.06em;    
+  padding: 16px;
+  margin-bottom: 0.5rem;
+
+  background: linear-gradient(
+    180deg, 
+    #ffffff 0%, 
+    rgba(255, 255, 255, 0.65) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.08));
+}
+
+.url-box{
+    display: flex;
+    gap: 1rem;
+    background: rgba(15, 15, 16, 0.5);
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+}
+
+.url-box.focus{
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.url-box:focus-within {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(94, 106, 210, 0.15); 
+}
+
+#url_input{
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    flex: 1;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 1rem;
+    font-family: var(--font);
+    font-weight: 400;
+}
+
+#button_clicked, #copy_button{
+    background: #ffffff;
+    color: 000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2 ease;
+    margin-left: 0.8rem;
+}
+
+#button_clicked:hover, #copy_button:hover{
+    background: #e2e2e2;
+    transform: translateY(-1px);
+}
+
+#button_clicked:active{
+    transform: translateY(0);
+}
+
+#result{
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeIn 0.5 ease-out;
+}
+
+#url_result{
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+    font-size: 24px;
+}
+
+#url_result p{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+#short_link{
+    background: rgba(94, 106, 210, 0.1);
+    color: #9b9efd;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(94, 106, 210, 0.3);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+    margin-top: 0.8rem;
+    
+}
+
+#short_link:hover{
+    background: rgba(94, 106, 210, 0.2);
+    border-color: rgba(94, 106, 210, 0.5);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

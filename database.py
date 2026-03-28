@@ -22,13 +22,11 @@ def init_db():
     conn.close()
 
 def save_url(original_url , short_code):
-    conn = sqlite3.connect("shortener.db")
-    cursor = conn.cursor()
+    with sqlite3.connect('shortener.db') as conn:
 
-    cursor.execute("INSERT INTO urls (url, short_code) VALUES(?, ?)", (original_url, short_code))
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO urls (url, short_code) VALUES(?, ?)", (original_url, short_code))
 
-    conn.commit()
-    conn.close()
 
 def get_url(short_code):
     
@@ -45,6 +43,7 @@ def get_url(short_code):
 
         if result:
             cursor.execute("UPDATE urls SET click_count = click_count + 1 WHERE short_code = ?", (short_code,))
+            conn.commit()
             return result
         
         return None

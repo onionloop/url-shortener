@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    
+    <title>
+        TinyLink | ShortURLs
+    </title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    
+    <script src = "{{url_for('static', filename = 'script.js')}}" defer></script> 
+</head>
+
+<body>
+    <div class = "container">
+        
+        <h1>🔗 TinyLink</h1>
+
+        <p>Paste your long link here</p>
+        <div class ="url-box">
+            <input type="text" id= "url_input" placeholder="https://example.com/hello-world">
+            <button id = "button_clicked">Get your link</button>
+        </div>
+
+        <div id="result">
+            <p id = "url_result" style="display:none">
+            Your Short link:
+            
+            <br> <a id = "short_link" href="" target = "_blank"></a><button id = "copy_button">Copy</button></p>
+            <p id = "error"></p>
+            
+
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+

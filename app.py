@@ -1,4 +1,4 @@
-from flask import Flask , request , redirect , url_for , abort , jsonify
+from flask import Flask , request , redirect , abort , jsonify , render_template
 from database import save_url
 from database import get_url
 from database import get_stats
@@ -13,7 +13,7 @@ def shorten():
     data = request.get_json()
 
     if not data or "url" not in data:
-        return {"error": "Ivalid Request"}, 400
+        return {"error": "Invalid Request"}, 400
 
     url = data["url"]
 
@@ -23,7 +23,8 @@ def shorten():
     short_code = generate_id()
     save_url(url, short_code)
 
-    return ({"short_url": short_code}), 201
+    return ({"short_url": short_code,
+            "message": "URL shortened successfully"}), 201
     
     
 
@@ -60,7 +61,10 @@ def display_stats(short_code):
         }), 200
     else:
         return abort(404, description="Short URL not found")
-        
+
+@app.route('/')
+def home():
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
