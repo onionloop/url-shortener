@@ -1,4 +1,6 @@
+import os
 from flask import Flask , request , redirect , abort , jsonify , render_template
+from database import init_db
 from database import save_url
 from database import get_url
 from database import get_stats
@@ -6,6 +8,8 @@ import string
 import secrets
 
 app = Flask(__name__)
+with app.app_context():
+    init_db()
 
 @app.route('/shorten', methods= ["POST"])
 def shorten():
@@ -72,4 +76,5 @@ def health():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host="0.0.0.0", port=port)

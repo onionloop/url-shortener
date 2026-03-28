@@ -59,8 +59,6 @@ def get_stats(short_code):
         if result:
             return result
         
-        
-
 
 if __name__ == "__main__":
     init_db()

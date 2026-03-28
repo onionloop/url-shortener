@@ -193,3 +193,12 @@ h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 480px) {
+    .url-box {
+        flex-direction: column;
+    }
+    
+    #button_clicked {
+        width: 100%;
+    }
+}
